@@ -26,11 +26,27 @@ def tracker(request):
             TARGET=request.POST['name']
 
 
-            browser = webdriver.Chrome('C:/Users/HOME/Desktop/Chromedriver')
-            browser.get('https://web.whatsapp.com/')
+            # browser = webdriver.Chrome('C:/Users/HOME/Desktop/Chromedriver')
+            # browser.get('https://web.whatsapp.com/')
+
+
+            from selenium import webdriver
+            from webdriver_manager.chrome import ChromeDriverManager
+
+            gChromeOptions = webdriver.ChromeOptions()
+            gChromeOptions.add_argument("window-size=1920x1480")
+            gChromeOptions.add_argument("disable-dev-shm-usage")
+            browser = webdriver.Chrome(
+                chrome_options=gChromeOptions, executable_path=ChromeDriverManager().install()
+            )
+            browser.get("https://web.whatsapp.com/")
+            
+            
+
             def bb():
                     time.sleep(30)
                     search = browser.find_element_by_class_name('_2_1wd')
+               
                     
                     search.send_keys(TARGET)
                     time.sleep(5)

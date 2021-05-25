@@ -9,6 +9,7 @@ selenium = "*"
 chromedriver-binary = "*"
 django = "*"
 gunicorn = "*"
+webdriver-manager = "*"
 
 [dev-packages]
 
