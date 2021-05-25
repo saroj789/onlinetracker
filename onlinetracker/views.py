@@ -36,9 +36,14 @@ def tracker(request):
             gChromeOptions = webdriver.ChromeOptions()
             gChromeOptions.add_argument("window-size=1920x1480")
             gChromeOptions.add_argument("disable-dev-shm-usage")
-            browser = webdriver.Chrome(
-                chrome_options=gChromeOptions, executable_path=ChromeDriverManager().install()
-            )
+            # chrome_options.add_argument("--headless")
+            # chrome_options.add_argument("--no-sandbox")
+            gChromeOptions.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+
+            # browser = webdriver.Chrome(
+            #     chrome_options=gChromeOptions, executable_path=ChromeDriverManager().install()
+            # )
+            browser = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=gChromeOptions)
             browser.get("https://web.whatsapp.com/")
             
             
