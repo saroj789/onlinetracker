@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class=''>
+            <h1>Online Tracker</h1>
+            <form action='{% url 'onlinetracker' %}'  method='post'>
+                {% csrf_token %}
+                <label for="contact">Enter Contact Name</label>
+                <input type="text" name='name'  id="contact" required> 
+                <input type="submit" value="Start Track">
+
+
+            </form>
+    </div>
+
+{% endblock content %}
+{% block js %}
+    <script>alert({{online}})</script>
+  
+{% endblock js %}
+    
