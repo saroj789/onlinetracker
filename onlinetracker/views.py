@@ -25,11 +25,11 @@ def tracker(request):
     if request.method=='POST':
             TARGET=request.POST['name']
 
-
+            # for l0calhost
             # browser = webdriver.Chrome('C:/Users/HOME/Desktop/Chromedriver')
             # browser.get('https://web.whatsapp.com/')
 
-
+            # for heroku
             from selenium import webdriver
             from webdriver_manager.chrome import ChromeDriverManager
 
